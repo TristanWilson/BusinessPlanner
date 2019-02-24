@@ -30,8 +30,9 @@ public class TemplateSection
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(TemplateSection t)
+	public boolean equals(Object object)
 	{
+		TemplateSection t =(TemplateSection)object;
 		if(!this.category.equals(t.category)
 			|| !this.name.equals(t.name)
 			||  children.size() != t.children.size()

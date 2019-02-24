@@ -121,9 +121,11 @@ public class Template
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	public boolean equals(Template template)
+	@Override
+	public boolean equals(Object object)
 	{
 		// TODO Auto-generated method stub
+		Template template = (Template) object;
 		return this.developerTemplateName.equals(template.developerTemplateName)
 				&& this.userTemplateName.equals(template.userTemplateName)
 				&& this.root.equals(template.root);
