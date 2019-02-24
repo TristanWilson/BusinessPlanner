@@ -1,17 +1,14 @@
 package business_plan.liu_tristan;
-
 import java.util.ArrayList;
 
 public class TemplateSection
 {
-
 	TemplateSection parent;
 	ArrayList<TemplateSection> children;
 	double childLimit;
 	String category;
 	String name;
 	ArrayList<Content> contents;
-	
 	
 	/**
 	 * @param category
@@ -56,7 +53,6 @@ public class TemplateSection
 			}
 		}
 		return true;
-		
 	}
 
 	public void addContent(Content c)
@@ -83,7 +79,6 @@ public class TemplateSection
 		{
 			deepCopy.contents.add(content.deepCopy());
 		}
-		
 		return deepCopy;
 	}
 	
@@ -95,7 +90,6 @@ public class TemplateSection
 		return parent;
 	}
 
-
 	/**
 	 * @param parent the parent to set
 	 */
@@ -103,7 +97,6 @@ public class TemplateSection
 	{
 		this.parent = parent;
 	}
-
 
 	/**
 	 * @return the children
@@ -113,7 +106,6 @@ public class TemplateSection
 		return children;
 	}
 
-
 	/**
 	 * @param children the children to set
 	 */
@@ -121,7 +113,6 @@ public class TemplateSection
 	{
 		this.children = children;
 	}
-
 
 	/**
 	 * @return the childLimit
@@ -131,7 +122,6 @@ public class TemplateSection
 		return childLimit;
 	}
 
-
 	/**
 	 * @param childLimit the childLimit to set
 	 */
@@ -139,7 +129,6 @@ public class TemplateSection
 	{
 		this.childLimit = childLimit;
 	}
-
 
 	/**
 	 * @return the category
@@ -149,7 +138,6 @@ public class TemplateSection
 		return category;
 	}
 
-
 	/**
 	 * @param category the category to set
 	 */
@@ -157,7 +145,6 @@ public class TemplateSection
 	{
 		this.category = category;
 	}
-
 
 	/**
 	 * @return the name
@@ -167,7 +154,6 @@ public class TemplateSection
 		return name;
 	}
 
-
 	/**
 	 * @param name the name to set
 	 */
@@ -175,7 +161,6 @@ public class TemplateSection
 	{
 		this.name = name;
 	}
-
 
 	/**
 	 * @return the contents
@@ -185,7 +170,6 @@ public class TemplateSection
 		return contents;
 	}
 
-
 	/**
 	 * @param contents the contents to set
 	 */
@@ -193,9 +177,4 @@ public class TemplateSection
 	{
 		this.contents = contents;
 	}
-	
-
-	
-
-
 }
