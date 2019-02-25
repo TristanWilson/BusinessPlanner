@@ -2,7 +2,6 @@ package business_plan.liu_tristan;
 
 public interface Content
 {
-
 	public Content deepCopy();
 
 	/* (non-Javadoc)
@@ -11,4 +10,6 @@ public interface Content
 	@Override
 	boolean equals(Object obj);
 	
+	edit();
+	display();
 }
