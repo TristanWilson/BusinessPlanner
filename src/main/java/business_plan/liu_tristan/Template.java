@@ -12,7 +12,6 @@ import org.hamcrest.core.IsEqual;
 
 public class Template
 {
-
 	String developerTemplateName;
 	String userTemplateName;
 	TemplateSection root;
@@ -129,8 +128,5 @@ public class Template
 		return this.developerTemplateName.equals(template.developerTemplateName)
 				&& this.userTemplateName.equals(template.userTemplateName)
 				&& this.root.equals(template.root);
-		
 	}
-
-	
 }
