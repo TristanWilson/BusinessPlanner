@@ -2,10 +2,14 @@ package business_plan.liu_tristan;
 
 import java.util.ArrayList;
 
+import javax.swing.plaf.basic.BasicBorders.ToggleButtonBorder;
+
+import org.junit.internal.Throwables;
+
 public class TemplateSection
 {
 
-	TemplateSection parent;
+	TemplateSection parent = null;
 	ArrayList<TemplateSection> children;
 	double childLimit;
 	String category;
@@ -17,15 +21,22 @@ public class TemplateSection
 	 * @param category
 	 * @param name
 	 */
-	public TemplateSection(String category, String name)
+
+	public TemplateSection(String category, String name,double childLimit)
 	{
 		
 		this.category = category;
 		this.name = name;
+		this.childLimit = childLimit;
 		children = new ArrayList<TemplateSection>();
 		contents = new ArrayList<Content>();
 	}
-
+	
+	public TemplateSection(String category, String name)
+	{
+		this(category, name, 1);
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -36,7 +47,8 @@ public class TemplateSection
 		if(!this.category.equals(t.category)
 			|| !this.name.equals(t.name)
 			||  children.size() != t.children.size()
-			|| contents.size() != t.contents.size())
+			|| contents.size() != t.contents.size()
+			|| childLimit != t.childLimit)
 		{
 			return false;
 		}
@@ -65,9 +77,40 @@ public class TemplateSection
 		contents.add(c);
 	}
 	
-	public void addChild(TemplateSection child)
+	public void deleteContent(Content content) throws ContentNotFoundException
 	{
-		children.add(child);
+		if(contents.indexOf(content) != -1)
+			contents.remove(content);
+		else
+		{
+			throw new ContentNotFoundException();
+		}
+		
+	}
+	
+	
+	public void addChild(TemplateSection child) throws ChildLIimitException
+	{
+		if(childLimit > children.size())
+		{
+			children.add(child);
+		}
+		else
+		{
+			throw new ChildLIimitException();
+		}
+	}
+
+	public void deleteChild(TemplateSection child) throws ChildNotFoundException
+	{
+		if(children.indexOf(child)!=-1)
+		{
+			children.remove(child);
+		}
+		else
+		{
+			throw new ChildNotFoundException();
+		}
 	}
 
 	public TemplateSection deepCopy()
@@ -77,7 +120,7 @@ public class TemplateSection
 		deepCopy.setChildLimit(childLimit);
 		for(int i=0; i<children.size(); i++)
 		{
-			deepCopy.children.add(this.children.get(i).deepCopy());
+			deepCopy.children.add(children.get(i).deepCopy());
 		}
 		
 		for(Content content : contents)
