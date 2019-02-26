@@ -4,10 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TemplateTest
+class TTest
 {
 
-	
+	@Test
+	void test()
+	{
+		fail("Not yet implemented");
+	}
 
 	/*
 	 * Test if the equals() function works fine
@@ -51,7 +55,7 @@ class TemplateTest
 		t2.setUserTemplateName(name1);
 
 		t2.setRoot(root2);
-		assertNotEquals(t1, t2);
+		assertNotEquals(t1, t1);
 		
 		//Case when their template root is not equal
 		t2.setRoot(root1);
